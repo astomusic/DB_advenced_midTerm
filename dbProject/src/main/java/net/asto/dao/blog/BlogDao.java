@@ -12,7 +12,7 @@ import org.springframework.stereotype.Repository;
 public class BlogDao {
 	
 	@Autowired
-	private MongoTemplate mongoTemplate;
+	MongoTemplate mongoTemplate;
  
     private static String COLLECTION_NAME = "next";
 
@@ -23,7 +23,7 @@ public class BlogDao {
     
     public void save(Blog blog) {
     	System.out.println(blog);
-    	mongoTemplate.save(blog);
+    	mongoTemplate.save(blog, COLLECTION_NAME);
     }
     
     public List<Blog> getBlogs() {
