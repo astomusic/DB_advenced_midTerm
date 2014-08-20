@@ -1,5 +1,6 @@
 package net.asto.web;
 
+import java.util.Collections;
 import java.util.List;
 
 import net.asto.dao.blog.BlogDao;
@@ -22,6 +23,7 @@ public class BlogController {
 	@RequestMapping("/")
 	public String blog(Model model) {
 		List<Blog> list = blogDao.getBlogs();
+		Collections.reverse(list);
 		model.addAttribute("lists", list);
 
 		log.debug("start!" + list);
